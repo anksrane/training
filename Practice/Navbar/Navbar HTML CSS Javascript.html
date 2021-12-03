@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar HTML CSS Only</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        nav {
+            background: #0082e6;
+            height: 80px;
+            width: 100%;
+        }
+
+        label.logo {
+            color: white;
+            font-size: 35px;
+            line-height: 80px;
+            padding: 0 100px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            float: right;
+            margin-right: 40px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 0px 5px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 17px;
+            text-transform: uppercase;
+            text-decoration: none;
+            list-style-type: none;
+            padding: 7px 13px;
+        }
+
+        a.active,
+        a:hover {
+            font-weight: bold;
+        }
+
+        #icon {
+            font-size: 30px;
+            color: white;
+            float: right;
+            line-height: 80px;
+            margin-right: 40PX;
+            cursor: pointer;
+            display: none;
+        }
+
+        @media screen and (max-width:1048px) {
+            label.logo {
+                font-size: 30px;
+                padding-left: 50px;
+            }
+
+            nav ul {
+                margin-right: 20px;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+        }
+
+        @media screen and (max-width:909px) {
+            nav #icon {
+                display: block;
+            }
+
+            #menu {
+                display: None;
+            }
+
+            nav ul {
+                position: fixed;
+                width: 100%;
+                background: #2f3640;
+                top: 80px;
+                left: 0;
+                text-align: center;
+            }
+
+            nav ul li {
+                display: block;
+                line-height: 30px;
+                margin: 50px 0;
+            }
+
+            nav a {
+                font-size: 20px;
+            }
+
+            a.active,
+            a:hover {
+                color: #3498db;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <!-- <input type="checkbox" id="check">
+        <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label> -->
+        <label class="logo">Sun</label>
+        <ul id="menu" class="show">
+            <li><a href="#" class="active" onclick="showHide()">Home</a></li>
+            <li><a href="#" onclick="showHide()">About Us</a></li>
+            <li><a href="#" onclick="showHide()">Screen</a></li>
+            <li><a href="#" onclick="showHide()">Contact</a></li>
+            <li><a href="#" onclick="showHide()">Feedback</a></li>
+        </ul>
+        <label id="icon" onclick="showHide()">
+            <i class="fas fa-bars"></i>
+        </label>
+    </nav>
+    <h1>
+        Navbar Using HTML CSS Javascript
+    </h1>
+    <script>
+        function showHide() {
+            if (window.innerWidth < 908) {
+                let x = document.getElementById("menu");
+                if (window.getComputedStyle(x).display === "none") {
+                    x.style.display = "block";
+                    console.log("BLOCK");
+                    console.log(window.innerWidth);
+                }
+                else {
+                    x.style.display = "none";
+                    console.log("NONE");
+                    console.log(window.innerWidth);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

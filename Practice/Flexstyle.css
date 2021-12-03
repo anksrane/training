@@ -1,0 +1,35 @@
+/* body {
+  padding: 0%;
+  margin: 0%;
+} */
+.flex-container {
+  background-color: blanchedalmond;
+  display: flex;
+  border: 2px solid grey;
+
+  /* justify-content: center; */
+  /* justify-content: flex-end; */
+  /* justify-content: flex-start; */
+  justify-content: flex-start;
+  align-items: center; /*Vertically Center*/
+  flex-wrap: wrap; /*To Make Reponsive and go to next line*/
+}
+.flex-item {
+  background-color: red;
+  border: 1px solid black;
+  margin: 12px;
+  padding: 1px;
+  width: 122px;
+  height: 122px;
+}
+.item1 {
+  order: 5;
+  flex-grow: 2;
+}
+.item2 {
+  order: 3;
+  flex-grow: 5;
+}
+.item4 {
+  flex-shrink: 4;
+}

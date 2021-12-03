@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Form</title>
+</head>
+
+<body>
+
+	<h1>Login</h1>
+
+	<!--action - where the form send data to -->
+	<!-- method - what HTTP method (get / post)  -->
+	<!-- get = send data shows in URL -->
+	<!-- post = send data not shows in URL -->
+
+	<!-- Form with Labels 2 types-->
+	<form>
+		<!--Type 1-->
+		<label>
+			Username:
+			<input type="text" placeholder="User Name" name="username">
+		</label>
+
+		<!--Type 2-->
+		<label for="pass">Password</label>
+		<input id="pass" type="password" placeholder="Password" name="password">
+
+		<!--Radio Button-->
+		<p>Select an Mobile?</p>
+		<label for="one">One Plus</label>
+		<input type="radio" name="Mobile" id="one" value="One Plus">
+
+		<label for="two">Nokia</label>
+		<input type="radio" name="Mobile" id="two" value="Nokia">
+
+		<!--Dropdown List-->
+		<p>Favourite Color?</p>
+		<select name="Color">
+			<option value="R">Red</option>
+			<option value="G">Green</option>
+			<option value="B">Blue</option>
+		</select>
+
+		<textarea rows="10" cols="80"></textarea>
+		<br>
+		<!--Input Range-->
+		<label for="chees">Amount of Cheese:</label>
+		<input type="range" id="cheese" name="cheese_level" min="1" max="100" value="0">
+
+		<br>
+		<label for="Age">Enter age</label>
+		<input type="number" name="Age" id="Age" min="18" max="65" value="">
+		<br>
+		<br>
+		<button>Ok</button>
+		<input type="submit">
+	</form>
+
+
+</body>
+
+</html>

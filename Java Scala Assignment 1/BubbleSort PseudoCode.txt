@@ -1,0 +1,25 @@
+Write a pseudo code for Bubble Sort.
+Step 1: PRINT: Enter number of element to be added into Array:
+Step 2: INPUT a size of Array(arrayLength)
+Step 3: Initialize array
+Step 4: IF arrayLength<=0 THEN
+	PRINT: Array Size Cannot be 0
+Step 5: ELSE
+	PRINT: Enter element into array
+Step 6: for(int i=0;i<arrayLength;i++) {
+		array[i]=sc.nextInt()
+	}
+Step 7: PRINT: Before Sorting array
+Step 8:	for (int i=0; i<arrayLength; ++i)
+            PRINT: (array[i] + " ")
+        PRINT: New Line;
+	}
+Step 9: for (int i = 0; i < n-1; i++){
+            for (int j = 0; j < n-i-1; j++)
+                if (array[j] > array[j+1])
+                {
+			swap( array[j], array[j+1] )
+                }
+	}
+Step 10: PRINT: Sorted array
+	Repeat Step 8

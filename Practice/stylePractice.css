@@ -1,0 +1,89 @@
+#sh1 {
+    text-transform: uppercase;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-align: center;
+    font-weight: 100;
+    font-size: 40px;
+    letter-spacing: 20px;
+    text-decoration: underline wavy plum;
+}
+
+/*CSS Selector*/
+li{
+  color: blue;
+}
+.done{
+  color:gray;
+}
+#clear{
+  background-color: red;
+  color: white;
+}
+
+header a{
+  font-size: 30px;
+  color: teal;
+}
+#dislikes a{
+  font-weight: bold;
+  color: red;
+}
+.square {
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+/*Chess Board*/
+#board {
+  display: flex;
+  margin: 0 auto;
+  width: 500px;
+  flex-wrap: wrap;
+}
+.square:nth-of-type(2n+1){
+  background-color: red;
+}
+.square:nth-of-type(2n+2){
+  background-color: black;
+}
+
+.card{
+  width: 210px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  text-align: center;
+}
+.card img{
+  width: 200px;
+  border: 5px solid rgb(236, 183, 191);
+  border-radius: 50%;
+}
+
+/*Position Property*/
+#static div{
+  width: 100px;
+  height: 100px;
+  background-color: blueviolet;
+  border: 2px solid black;
+  margin: 10px;
+  display: inline-block;
+}
+#static #middle{
+  background-color: aqua;
+  position: relative;
+  top: 10px;
+}
+
+/*CSS Transitions*/
+.circle{
+  width: 300px;
+  height: 300px;
+  background-color: brown;
+  transition: margin-left 3s 1s;
+}
+.circle:hover{
+  background-color: cyan;
+  border-radius: 50%;
+  margin-left: 500px;
+}
