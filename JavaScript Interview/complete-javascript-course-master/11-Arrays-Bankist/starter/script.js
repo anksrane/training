@@ -61,6 +61,34 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovements=function(movements){
+  //delete already existing HTML
+  containerMovements.innerHTML='';
+  movements.forEach(function(mov,i){
+    const type=mov>0?'deposit':'withdrawal';//if mov>0 then dep/with
+    //create html element
+    const html=`
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${i+1} ${type}</div>
+
+      <div class="movements__value">${mov}</div>
+    </div>
+    `;
+    //add element to html
+    containerMovements.insertAdjacentHTML('afterbegin',html);
+  });
+};
+displayMovements(account1.movements);
+
+const createUsernames=function(user){
+  const username=user.toLowerCase().split(' ').map(function(name){
+    return name[0];
+  }).join('');
+  return username;
+}
+
+console.log(createUsernames('Steven Thomas Williams'));
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -73,29 +101,49 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-/////////////////////////////////////////////////
-let arr=['a','b','c','d','e'];
-//array slice
-console.log(arr.slice(1)); //only start parameter
-console.log(arr.slice(2,4)); //start & end parameter
+// /////////////////////////////////////////////////
+// let arr=['a','b','c','d','e'];
+// //array slice
+// console.log(arr.slice(1)); //only start parameter
+// console.log(arr.slice(2,4)); //start & end parameter
 
-// //splice
-// console.log(arr.splice(4));
-// console.log(arr);
+// // //splice
+// // console.log(arr.splice(4));
+// // console.log(arr);
 
-console.log(arr.at(-1));
+// console.log(arr.at(-1));
 
-for(const movement of movements){
-  if(movement>0){
-    console.log(`You deposited ${movement}`);
-  }else{
-    console.log(`You withdrew ${Math.abs(movement)}`);
-  }
-}console.log('-------------ForEach---------------')
-movements.forEach(function(movement,index){
-  if(movement>0){
-    console.log(`Movement${index+1}: You deposited ${movement}`);
-  }else{
-    console.log(`Movement${index+1}: You withdrew ${Math.abs(movement)}`);
-  }
-})
+// for(const movement of movements){
+//   if(movement>0){
+//     console.log(`You deposited ${movement}`);
+//   }else{
+//     console.log(`You withdrew ${Math.abs(movement)}`);
+//   }
+// }console.log('-------------ForEach---------------')
+// movements.forEach(function(movement,index){
+//   if(movement>0){
+//     console.log(`Movement${index+1}: You deposited ${movement}`);
+//   }else{
+//     console.log(`Movement${index+1}: You withdrew ${Math.abs(movement)}`);
+//   }
+// })
+
+const checkDogs=function(dogsJulia,dogsKate){
+  const dogsJuliaCorrected=dogsJulia.slice();
+  dogsJuliaCorrected.splice(0,1);
+  dogsJuliaCorrected.splice(-2);
+  console.log(dogsJuliaCorrected);
+}
+checkDogs([3,5,2,12,7],[4,1,15,8,3]);
+
+const numbers = [4, 9, 16, 25];
+console.log(numbers.map(Math.sqrt));
+console.log(numbers.map(x => x * 2));
+
+const euroToInr=82.38;
+const movementsInr=movements.map(function(mov){
+  return mov*euroToInr;
+});
+
+console.log(movements);
+console.log(movementsInr);
