@@ -9,6 +9,7 @@ const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnScrollTo=document.querySelector('.btn--scroll-to');
 const section1=document.querySelector('#section--1');
+const nav = document.querySelector('.nav');
 
 //Modla View
 const openModal = function (e) {
@@ -101,11 +102,19 @@ tabsContainer.addEventListener('click',function(e){
   }
 })
 
-// tabs.forEach(function(t){
-//   t.addEventListener('click',function(){
-//     console.log('TAB');
-//   })
-// })
+//Sticky Navigation Bar
+const initialCords=section1.getBoundingClientRect();
+console.log(initialCords);
+window.addEventListener('scroll',function(){
+  console.log(window.scrollY);
+  if(window.scrollY>initialCords.top)
+    nav.classList.add('sticky');
+  else
+    nav.classList.remove('sticky');
+});
+
+//lazy load images
+
 
 
 
