@@ -7,8 +7,8 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
-const btnScrollTo=document.querySelector('.btn--scroll-to');
-const section1=document.querySelector('#section--1');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 const nav = document.querySelector('.nav');
 
 //Modla View
@@ -23,7 +23,7 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
-btnsOpenModal.forEach(btn=>btn.addEventListener('click', openModal));
+btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
 
 // for (let i = 0; i < btnsOpenModal.length; i++)
 //   btnsOpenModal[i].addEventListener('click', openModal);
@@ -38,8 +38,8 @@ document.addEventListener('keydown', function (e) {
 });
 
 //Smooth Scrolling
-btnScrollTo.addEventListener('click',function(e){
-  const s1cords=section1.getBoundingClientRect();
+btnScrollTo.addEventListener('click', function (e) {
+  // const s1cords = section1.getBoundingClientRect();
   // console.log(s1cords.left+window.pageXOffset,s1cords.top+window.pageYOffset);
   //Type1
   // window.scrollTo(
@@ -55,7 +55,7 @@ btnScrollTo.addEventListener('click',function(e){
   // });
 
   //Type3
-  section1.scrollIntoView({behavior:'smooth'});
+  section1.scrollIntoView({ behavior: 'smooth' });
 });
 
 // //by this approch need to add listerner to every element. slow down performance.
@@ -69,65 +69,51 @@ btnScrollTo.addEventListener('click',function(e){
 // });
 
 //event delegation
-document.querySelector('.nav__links').addEventListener('click',function(e){
+document.querySelector('.nav__links').addEventListener('click', function (e) {
   e.preventDefault();
-  if(e.target.classList.contains('nav__link')){
-    const id=e.target.getAttribute('href');
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
     console.log(id);
-    document.querySelector(id).scrollIntoView({behavior:'smooth'});
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
 });
 
-//Tabbed Component
-const tabs=document.querySelectorAll('.operations__tab');
-const tabsContainer=document.querySelector('.operations__tab-container');
-const tabsContent=document.querySelectorAll('.operations__content');
+//Tabbed Component using Morden Way
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+console.log(tabsContainer);
 
-tabsContainer.addEventListener('click',function(e){
-  const clicked=e.target.closest('.operations__tab');
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab');
   console.log(clicked);
-  if(clicked) {
+  if (clicked) {
     //Remove active content
-    tabs.forEach(function(t){
+    tabs.forEach(function (t) {
       t.classList.remove('operations__tab--active');
     });
-    tabsContent.forEach(function(t){
+    tabsContent.forEach(function (t) {
       t.classList.remove('operations__content--active');
-    })
+    });
     //actiate class
     clicked.classList.add('operations__tab--active');
     //Activate Content Area
-    document.querySelector(`.operations__content--${clicked.dataset.tab}`)
-    .classList.add('operations__content--active');
+    document
+      .querySelector(`.operations__content--${clicked.dataset.tab}`)
+      .classList.add('operations__content--active');
   }
-})
+});
 
 //Sticky Navigation Bar
-const initialCords=section1.getBoundingClientRect();
-console.log(initialCords);
-window.addEventListener('scroll',function(){
-  console.log(window.scrollY);
-  if(window.scrollY>initialCords.top)
-    nav.classList.add('sticky');
-  else
-    nav.classList.remove('sticky');
+const initialCords = section1.getBoundingClientRect();
+// console.log(initialCords);
+window.addEventListener('scroll', function () {
+  // console.log(window.scrollY);
+  if (window.scrollY > initialCords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
 });
 
 //lazy load images
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //Study-------------------------------------------------------------------------------------------------------
 // const header=document.querySelector('.header');
@@ -161,4 +147,3 @@ window.addEventListener('scroll',function(){
 // }
 
 // h1.addEventListener('mouseenter',alertH1);
-

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="nav container">
+        <a class="logo" href="#"> Ankit Rane </a>
+        <ul class="nav-links">
+          <li class="nav-items">
+            <a class="nav-link active" href="#info">Info</a>
+          </li>
+          <li class="nav-items">
+            <a class="nav-link" href="#experience">Experience</a>
+          </li>
+          <li class="nav-items">
+            <a class="nav-link" href="#education">Education</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <section class="section container" id="info">
+      <div class="info-container">
+        <div class="left">
+          <!-- <div class="about-me">
+            <h1>About Me</h1>
+            <p>
+              Hello! I'm Ankit It is a long established fact that a reader will
+              be distracted by the readable content of a page when looking at
+              its layout.
+            </p>
+          </div> -->
+
+          <div class="info">
+            <!--image slider start-->
+            <div class="slider">
+              <div class="slides">
+                <!--radio buttons start-->
+                <input type="radio" name="radio-btn" id="radio1" />
+                <input type="radio" name="radio-btn" id="radio2" />
+                <input type="radio" name="radio-btn" id="radio3" />
+                <!--radio buttons end-->
+                <!--slide images start-->
+                <div class="slide first">
+                  <div class="content">
+                    <h3>About Me</h3>
+                    <p>
+                      To work on a challenging job profile which provides an
+                      opportunity to enhance my technical skills and knowledge,
+                      this could provide me an insight into new aspects so that
+                      it would be helpful for my career.
+                    </p>
+                  </div>
+                </div>
+                <div class="slide">
+                  <div class="content">
+                    To work on a challenging job profile which provides an
+                    opportunity to enhance my technical skills and knowledge,
+                    this could provide me an insight into new aspects so that it
+                    would be helpful for my career.
+                  </div>
+                </div>
+                <div class="slide">
+                  <div class="content">
+                    To work on a challenging job profile which provides an
+                    opportunity to enhance my technical skills and knowledge,
+                    this could provide me an insight into new aspects so that it
+                    would be helpful for my career.
+                  </div>
+                </div>
+                <!--slide images end-->
+                <!--automatic navigation start-->
+                <div class="navigation-auto">
+                  <div class="auto-btn1"></div>
+                  <div class="auto-btn2"></div>
+                  <div class="auto-btn3"></div>
+                </div>
+                <!--automatic navigation end-->
+              </div>
+              <!--manual navigation start-->
+              <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+              </div>
+              <!--manual navigation end-->
+            </div>
+            <!--image slider end-->
+          </div>
+        </div>
+        <div class="right">
+          <img class="profile-img" src="img/me-cropped.jpg" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="experience">
+      <div class="cards">
+        <div class="card card1">
+          <div class="more-info">
+            <div>More-info</div>
+          </div>
+          <div class="details">
+            <h2>HERE Technologies Pvt LTD</h2>
+            <h2>Navi Mumbai, Airoli</h2>
+            <br />
+            <h4>GIS Analyst</h4>
+          </div>
+        </div>
+        <div class="card card2">
+          <div class="more-info">
+            <div>More-info</div>
+          </div>
+          <div class="details">
+            <h2>Techflux(a Division of Renam Technologies pvt. Ltd.)</h2>
+            <h2>Navi Mumbai, Vashi</h2>
+            <br />
+            <h4>Software Developer</h4>
+          </div>
+        </div>
+        <div class="card card3">
+          <div class="more-info">
+            <div>More-info</div>
+          </div>
+          <div class="details">
+            <h2>Abhay Techsolutions LLP</h2>
+            <h2>Mumbai, Andheri</h2>
+            <br />
+            <h4>Internship Trainee</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="education">
+      <div class="btn__tab-container">
+        <button class="btn btn__tab btn__tab-1 btn__tab-active" data-tab="1">
+          <div><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
+          Degree
+        </button>
+        <button class="btn btn__tab btn__tab-2" data-tab="2">
+          <div><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
+          Diploma
+        </button>
+        <button class="btn btn__tab btn__tab-3" data-tab="3">
+          <div><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
+          SSC
+        </button>
+      </div>
+      <div
+        class="education-content education-content-1 education-content--active"
+      >
+        <div class="content-data">
+          <table>
+            <tr>
+              <td class="edu-icon">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              </td>
+              <td class="edu-data">
+                <p>2014 - 2017</p>
+                <p>
+                  Yadavrao Tasgaonkar College of Engineering and Management,
+                  Bhivpuri
+                </p>
+                <p>Bachelor of Computer Engineering (5.88 CGPI)</p>
+              </td>
+              <td class="edu-icon">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="education-content education-content-2">
+        <div class="content-data">
+          <table>
+            <tr>
+              <td class="edu-icon">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              </td>
+              <td class="edu-data">
+                <p>2010 - 2014</p>
+                <p>Shreeram Polytechnic, Airoli</p>
+                <p>Diploma Computer Technology (62.26% Aggregate)</p>
+              </td>
+              <td class="edu-icon">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="education-content education-content-3">
+        <div class="content-data">
+          <table>
+            <tr>
+              <td class="edu-icon">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              </td>
+              <td class="edu-data">
+                <p>2001 - 2010</p>
+                <p>S.V. Joshi High School, Dombivli</p>
+                <p>S.S.C. (Percentage 77.09%)</p>
+              </td>
+              <td class="edu-icon">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
