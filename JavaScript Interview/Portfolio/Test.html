@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills Bar</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+      /*= Skills */
+
+      .skillbar-wrapper {
+        margin: 1.5em auto;
+      }
+
+      .skillbar {
+        position: relative;
+        margin-bottom: 15px;
+        width: 100%;
+        background: #eee;
+        height: 35px;
+        border-radius: 3px;
+      }
+
+      .skillbar-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 110px;
+        font-weight: bold;
+        font-size: 1rem;
+        color: #fff;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        margin: 0;
+      }
+
+      .skillbar-title span {
+        display: block;
+        background: rgba(0, 0, 0, 0.1);
+        padding: 0 20px;
+        height: 35px;
+        line-height: 35px;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+      }
+
+      .skillbar-bar {
+        height: 35px;
+        width: 0%;
+        border-radius: 3px;
+        transition: 500ms linear;
+        transition-property: width, background-color;
+      }
+
+      .skill-bar-percent {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        font-size: 1rem;
+        height: 35px;
+        line-height: 35px;
+        color: rgba(0, 0, 0, 0.4);
+        transition: color 500ms ease-out;
+      }
+
+      .complete .skill-bar-percent {
+        color: #000;
+      }
+
+      .complete.server .skill-bar-percent {
+        color: #333;
+      }
+
+      .html5 .skillbar-title {
+        background: #d35400;
+      }
+
+      .html5 .skillbar-bar {
+        background: #e67e22;
+      }
+
+      .css .skillbar-title {
+        background: #2980b9;
+      }
+
+      .css .skillbar-bar {
+        background: #3498db;
+      }
+
+      .javascript .skillbar-title {
+        background: #fac552;
+      }
+      .javascript .skillbar-bar {
+        background: #f1ac18;
+      }
+
+      .java .skillbar-title {
+        background: #2c3e50;
+      }
+
+      .java .skillbar-bar {
+        background: #2c3e50;
+      }
+
+      .sql .skillbar-title {
+        background: #46465e;
+      }
+
+      .sql .skillbar-bar {
+        background: #5a68a5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="skillbar-wrapper">
+      <div class="skillbar clearfix html5" data-percent="80%">
+        <h4 class="skillbar-title"><span>HTML5</span></h4>
+        <div class="skillbar-bar"></div>
+        <div class="skill-bar-percent">80%</div>
+      </div>
+
+      <div class="skillbar clearfix css" data-percent="75%">
+        <h4 class="skillbar-title"><span>CSS</span></h4>
+        <div class="skillbar-bar"></div>
+        <div class="skill-bar-percent">75%</div>
+      </div>
+
+      <div class="skillbar clearfix javascript" data-percent="60%">
+        <h4 class="skillbar-title"><span>JavaScript</span></h4>
+        <div class="skillbar-bar"></div>
+        <div class="skill-bar-percent">60%</div>
+      </div>
+
+      <div class="skillbar clearfix java" data-percent="75%">
+        <h4 class="skillbar-title"><span>Java</span></h4>
+        <div class="skillbar-bar"></div>
+        <div class="skill-bar-percent">75%</div>
+      </div>
+
+      <div class="skillbar clearfix sql" data-percent="65%">
+        <h4 class="skillbar-title"><span>SQL</span></h4>
+        <div class="skillbar-bar"></div>
+        <div class="skill-bar-percent">65%</div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var SkillsBar = function (bars) {
+          this.bars = document.querySelectorAll(bars);
+          if (this.bars.length > 0) {
+            this.init();
+          }
+        };
+
+        SkillsBar.prototype = {
+          init: function () {
+            var self = this;
+            self.index = -1;
+            self.timer = setTimeout(function () {
+              self.action();
+            }, 500);
+          },
+          select: function (n) {
+            var self = this,
+              bar = self.bars[n];
+
+            if (bar) {
+              var width = bar.parentNode.dataset.percent;
+
+              bar.style.width = width;
+              bar.parentNode.classList.add("complete");
+            }
+          },
+          action: function () {
+            var self = this;
+            self.index++;
+            if (self.index == self.bars.length) {
+              clearTimeout(self.timer);
+            } else {
+              self.select(self.index);
+            }
+
+            setTimeout(function () {
+              self.action();
+            }, 500);
+          },
+        };
+
+        window.SkillsBar = SkillsBar;
+      })();
+
+      (function () {
+        document.addEventListener("DOMContentLoaded", function () {
+          var skills = new SkillsBar(".skillbar-bar");
+        });
+      })();
+    </script>
+  </body>
+</html>
