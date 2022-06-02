@@ -101,6 +101,55 @@ header {
 }
 /* Section Info Style End _______________________________*/
 
+/* Section Modal Style Start _______________________________*/
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal .card {
+  background-color: var(--prim-superlight);
+}
+.modal .card .round {
+  width: 30%;
+  height: 100%;
+  border: 1px solid var(--prim-extradark);
+}
+/* Section Modal Style End _______________________________*/
+
 /* Section Experience Style Start _______________________________*/
 #experience {
   padding: 3rem 0rem;
@@ -144,8 +193,8 @@ header {
 }
 button.primary {
   background-color: var(--prim-superlight);
-  border-radius: 3px;
-  border-color: var(--prim-light);
+  border-radius: 5px;
+  border-color: var(--prim-dark);
   color: var(--prim-extradark);
   font-size: 1rem;
   font-weight: 800;
@@ -155,7 +204,7 @@ button.primary {
 }
 button.primary:hover {
   background-color: var(--prim-light);
-  border-color: var(--prim-extradark);
+  border-color: var(--bg);
 }
 /* Section Experience Style End _______________________________*/
 
@@ -163,7 +212,7 @@ button.primary:hover {
 #skills {
   background-color: var(--prim-superlight);
   padding: 3rem 0rem;
-  min-height: 50vh;
+  min-height: 40vh;
 }
 #skills h1 {
   text-align: center;
@@ -203,7 +252,7 @@ button.primary:hover {
 .skillbar-bar {
   height: 35px;
   width: 0%;
-  border-radius: 3px;
+  border-radius: 5px;
   transition: 500ms linear;
   transition-property: width, background-color;
 }
@@ -257,7 +306,6 @@ button.primary:hover {
 
 /* Section Study Style Start _______________________________*/
 #education {
-  /* background-color: var(--prim-superlight); */
   padding: 3rem 0rem;
   margin-bottom: 2rem;
 }
@@ -369,7 +417,7 @@ footer {
     padding: 1rem 0rem;
   }
 }
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 500px) {
   .nav {
     display: block;
   }
@@ -377,7 +425,7 @@ footer {
     display: block;
   }
   .left h1 {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   #info {
     min-height: 30vh;
@@ -389,8 +437,50 @@ footer {
     font-size: 0.7rem;
     width: 8rem;
   }
+  .card {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .card .round {
+    width: 30%;
+  }
+  .card h3 {
+    font-size: 1.1rem;
+  }
+  .card h6 {
+    font-size: 0.9rem;
+  }
+  button.primary {
+    font-size: 0.8rem;
+  }
+  .skillbar,
+  .skillbar-title span,
+  .skillbar-bar,
+  .skill-bar-percent {
+    height: 30px;
+    line-height: 30px;
+  }
+  .skillbar-title,
+  .skill-bar-percent {
+    font-size: 0.9rem;
+  }
+
+  #education {
+    padding: 1rem 0rem;
+    margin-bottom: 2rem;
+  }
   .education-content {
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+    padding: 3rem 2rem;
+  }
+  .edu-data h4 {
+    font-size: 1rem;
+  }
+  .edu-data h3 {
+    font-size: 1rem;
+  }
+  .edu-data h2 {
+    font-size: 1.3rem;
   }
 }

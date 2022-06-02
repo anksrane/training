@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <button class="more-info" name="here">Here</button>
+      <button class="more-info" name="techflux">Techflux</button>
+      <button class="more-info" name="abhaytech">Abhaytech</button>
+    </div>
+  </body>
+  <script>
+    // const jobs = {
+    //   here: {
+    //     location: "Airoli",
+    //     DateOfJoin: "27 June 2022",
+    //   },
+    //   techflux: {
+    //     location: "Vashi",
+    //     DateOfJoin: "15 June 2019",
+    //   },
+    //   abhaytech: {
+    //     location: "Marol",
+    //     DateOfJoin: "24 June 2017",
+    //   },
+    // };
+    const jobs = [
+      {
+        id: "here",
+        companyName: "Here",
+        location: "Airoli",
+        DateOfJoin: "27 June 2022",
+      },
+      {
+        id: "techflux",
+        companyName: "Techflux",
+        location: "Vashi",
+        DateOfJoin: "15 June 2019",
+      },
+      {
+        id: "abhay",
+        companyName: "Abhay",
+        location: "Marol",
+        DateOfJoin: "24 June 2017",
+      },
+    ];
+
+    for (let i = 0; i < jobs.length; i++) {
+      console.log(jobs[i].id);
+    }
+    let companyDetails = jobs.find((o) => o.id === "no");
+    console.log(companyDetails);
+
+    // let lookFor = "here";
+    // var search = "here" in jobs;
+    // console.log(search);
+    // var findKey = jobs.hasOwnProperty(lookFor);
+    // console.log(findKey);
+    // const buttonContainer = document.querySelector(".container");
+    // const buttons = document.querySelectorAll(".more-info");
+    // buttonContainer.addEventListener("click", function (e) {
+    //   const searchKey = e.target.closest(".more-info");
+    //   console.log(searchKey.name);
+    //   let printKey = Object.keys(jobs).find((key) => jobs[key] == searchKey);
+    //   console.log(printKey);
+    // });
+  </script>
+</html>

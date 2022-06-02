@@ -61,31 +61,37 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements=function(movements){
+const displayMovements = function (movements) {
   //delete already existing HTML
-  containerMovements.innerHTML='';
-  movements.forEach(function(mov,i){
-    const type=mov>0?'deposit':'withdrawal';//if mov>0 then dep/with
+  containerMovements.innerHTML = '';
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal'; //if mov>0 then dep/with
     //create html element
-    const html=`
+    const html = `
     <div class="movements__row">
-      <div class="movements__type movements__type--${type}">${i+1} ${type}</div>
+      <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
 
       <div class="movements__value">${mov}</div>
     </div>
     `;
     //add element to html
-    containerMovements.insertAdjacentHTML('afterbegin',html);
+    containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
 displayMovements(account1.movements);
 
-const createUsernames=function(user){
-  const username=user.toLowerCase().split(' ').map(function(name){
-    return name[0];
-  }).join('');
+const createUsernames = function (user) {
+  const username = user
+    .toLowerCase()
+    .split(' ')
+    .map(function (name) {
+      return name[0];
+    })
+    .join('');
   return username;
-}
+};
 
 console.log(createUsernames('Steven Thomas Williams'));
 
@@ -99,7 +105,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+//Map Method
 
 // /////////////////////////////////////////////////
 // let arr=['a','b','c','d','e'];
@@ -128,22 +134,25 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   }
 // })
 
-const checkDogs=function(dogsJulia,dogsKate){
-  const dogsJuliaCorrected=dogsJulia.slice();
-  dogsJuliaCorrected.splice(0,1);
+const checkDogs = function (dogsJulia, dogsKate) {
+  const dogsJuliaCorrected = dogsJulia.slice();
+  dogsJuliaCorrected.splice(0, 1);
   dogsJuliaCorrected.splice(-2);
   console.log(dogsJuliaCorrected);
-}
-checkDogs([3,5,2,12,7],[4,1,15,8,3]);
+};
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
 const numbers = [4, 9, 16, 25];
 console.log(numbers.map(Math.sqrt));
 console.log(numbers.map(x => x * 2));
 
-const euroToInr=82.38;
-const movementsInr=movements.map(function(mov){
-  return mov*euroToInr;
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+//Map
+const euroToInr = 82.38;
+const eurToUsd = 1.1;
+const movementUSD = movements.map(function (mov) {
+  return mov * eurToUsd;
 });
 
 console.log(movements);
-console.log(movementsInr);
+console.log(movementUSD);

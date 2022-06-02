@@ -13,6 +13,30 @@ navLinks.addEventListener("click", function (e) {
   }
 });
 
+//Modal
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+// // When the user clicks on the button, open the modal
+// btn.onclick = function () {
+//   modal.style.display = "block";
+// };
+const moreDetails = document.querySelectorAll(".buttons");
+const card = document.querySelector(".cards");
+card.addEventListener("click", function (e) {
+  const buttonClicked = e.target.closest(".primary");
+  console.log(buttonClicked.name);
+  modal.style.display = "block";
+});
+span.onclick = function () {
+  modal.style.display = "none";
+};
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
 //Tabbed Component
 const btns = document.querySelectorAll(".btn__tab");
 const btnsTab = document.querySelector(".btn__tab-container");
