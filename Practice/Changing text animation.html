@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Changing text animation</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      .wrapper h2 {
+        padding: 0;
+        margin: 0;
+        color: white;
+        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+      }
+      span::before {
+        content: "";
+        animation: animate infinite 8s;
+      }
+      @keyframes animate {
+        0% {
+          content: "an Engineer";
+        }
+        50% {
+          content: "a Designer";
+        }
+        100% {
+          content: "a Developer";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>I am <span></span></h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum amet
+        expedita quod quam facilis assumenda! Laborum dolor deserunt id neque
+        iure eius veritatis dolorem ex molestiae? Inventore illo ratione at.
+      </p>
+      <a href="#">Contact me</a>
+    </div>
+  </body>
+</html>

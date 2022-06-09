@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
-
+html {
+  scroll-behavior: smooth;
+}
 * {
   box-sizing: border-box;
-  padding: 0%;
+  /* padding: 0%; */
   margin: 0%;
   text-decoration: none;
   font-family: "Open Sans", sans-serif;
-  list-style-type: none;
+  /* list-style-type: none; */
 }
 :root {
   --white: #fff;
@@ -21,54 +23,108 @@
 body {
   background: var(--bg);
 }
-/* Header Style Start _______________________________*/
-header {
-  width: 100%;
-  background: var(--prim-extradark);
-  top: 0;
-  left: 0;
-  z-index: 10;
-  border-bottom: 0.5px solid var(--prim-superlight);
-}
 .container {
   max-width: 1024px;
   margin: 0 auto;
   text-align: center;
 }
-.nav {
+/* Nav Style Start _______________________________*/
+nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: var(--prim-extradark);
+  z-index: 10;
+}
+.nav-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 0px;
+  padding: 10px 0px;
 }
-.logo {
+.brand {
+  display: flex;
+  align-items: center;
+}
+.brand .logo {
   font-size: 2rem;
   font-weight: 800;
   color: var(--prim-superlight);
 }
-.nav-links {
+.nav-wrapper .nav-list {
+  list-style-type: none;
   display: flex;
+  align-items: center;
 }
-.nav-items {
-  padding: 0px 15px;
+.nav-wrapper .nav-list .nav-items {
+  margin-left: 30px;
+  padding: 20px 0px;
+  /* position: relative; */
 }
-.nav-link {
+.nav-wrapper .nav-list .nav-items .nav-link {
   color: var(--prim-superlight);
   font-size: 1.2rem;
-  font-weight: 500;
+  transition: all 0.3s ease-in-out;
 }
 .active,
-.nav-link:hover {
+.nav-wrapper .nav-list .nav-items .nav-link:hover {
   font-weight: 700;
 }
-/* Header Style End _______________________________*/
+/* Responsive Setting */
+.hamburger {
+  display: none;
+}
+.mobile .hamburger {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  cursor: pointer;
+}
+.mobile .hamburger span {
+  background-color: var(--prim-superlight);
+  width: 28px;
+  height: 2px;
+  margin-bottom: 8px;
+}
+.mobile .nav-list {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  background: -webkit-linear-gradient(
+    45deg,
+    var(--prim-dark),
+    var(--prim-extradark)
+  );
+  background: linear-gradient(45deg, var(--prim-dark), var(--prim-extradark));
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  padding-top: 80px;
+  transition: all 0.3s ease-in-out;
+}
+.mobile .hamburger,
+.mobile .brand {
+  z-index: 9999;
+}
+.mobile ul.nav-list.open {
+  /* display: block; */
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Nav Style End _______________________________*/
 
 /* Section Info Style Start _______________________________*/
 #info {
   background-color: var(--prim-extradark);
   min-height: 95vh;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+  z-index: -1;
+  position: relative;
 }
 .info-container {
   display: flex;
@@ -99,14 +155,32 @@ header {
 .about-me h1 {
   color: var(--white);
 }
+.about-me div::before {
+  content: "";
+  animation: animate infinite 8s;
+  color: var(--white);
+  font-size: 3rem;
+  font-weight: 800;
+}
+@keyframes animate {
+  0% {
+    content: "an Engineer";
+  }
+  50% {
+    content: "a Designer";
+  }
+  100% {
+    content: "a Developer";
+  }
+}
 /* Section Info Style End _______________________________*/
 
 /* Section Modal Style Start _______________________________*/
 /* The Modal (background) */
 .modal {
-  display: block; /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 5; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -119,7 +193,7 @@ header {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto; /* 15% from the top and centered */
+  margin: 10% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   border-radius: 5px;
@@ -141,12 +215,36 @@ header {
   cursor: pointer;
 }
 .modal .card {
-  background-color: var(--prim-superlight);
+  background-color: var(--bg);
+  display: block;
+  color: var(--prim-extradark);
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+  text-align: center;
+}
+.company-info .left {
+  text-align: center;
+  padding: 1rem;
 }
 .modal .card .round {
-  width: 30%;
-  height: 100%;
+  width: 50%;
+  /* height: 100%; */
   border: 1px solid var(--prim-extradark);
+}
+.company-info .right {
+  text-align: left;
+  padding: 1rem;
+}
+.company-info .right h5 {
+  font-size: 1.2rem;
+}
+.description {
+  text-align: justify;
+  padding: 1rem 2em;
+  border-top: 1px solid var(--prim-extradark);
 }
 /* Section Modal Style End _______________________________*/
 
@@ -154,6 +252,7 @@ header {
 #experience {
   padding: 3rem 0rem;
   min-height: 50vh;
+  position: relative;
 }
 #experience h1 {
   text-align: center;
@@ -213,6 +312,7 @@ button.primary:hover {
   background-color: var(--prim-superlight);
   padding: 3rem 0rem;
   min-height: 40vh;
+  position: relative;
 }
 #skills h1 {
   text-align: center;
@@ -276,31 +376,61 @@ button.primary:hover {
   background: #d35400;
 }
 .html5 .skillbar-bar {
-  background: #e67e22;
+  background: repeating-linear-gradient(
+    -45deg,
+    #e67e22,
+    #e67e22 10px,
+    #eda464 10px,
+    #eda464 20px
+  );
 }
 .css .skillbar-title {
   background: #2980b9;
 }
 .css .skillbar-bar {
-  background: #3498db;
+  background: repeating-linear-gradient(
+    -45deg,
+    #3498db,
+    #3498db 10px,
+    #70b6e5 10px,
+    #70b6e5 20px
+  );
 }
 .javascript .skillbar-title {
   background: #fac552;
 }
 .javascript .skillbar-bar {
-  background: #f1ac18;
+  background: repeating-linear-gradient(
+    -45deg,
+    #f1ac18,
+    #f1ac18 10px,
+    #f5c45d 10px,
+    #f5c45d 20px
+  );
 }
 .java .skillbar-title {
   background: #2c3e50;
 }
 .java .skillbar-bar {
-  background: #2c3e50;
+  background: repeating-linear-gradient(
+    -45deg,
+    #2c3e50,
+    #2c3e50 10px,
+    #6b7784 10px,
+    #6b7784 20px
+  );
 }
 .sql .skillbar-title {
   background: #46465e;
 }
 .sql .skillbar-bar {
-  background: #5a68a5;
+  background: repeating-linear-gradient(
+    -45deg,
+    #5a68a5,
+    #5a68a5 10px,
+    #8b95c0 10px,
+    #8b95c0 20px
+  );
 }
 /* Section Skills Style End _______________________________*/
 
@@ -308,6 +438,7 @@ button.primary:hover {
 #education {
   padding: 3rem 0rem;
   margin-bottom: 2rem;
+  position: relative;
 }
 #education h1 {
   text-align: center;
@@ -403,6 +534,9 @@ footer {
 }
 
 @media screen and (max-width: 769px) {
+  .nav-wrapper .nav-list .nav-items {
+    margin-left: 0px;
+  }
   .left h1 {
     font-size: 2.3rem;
   }
@@ -418,17 +552,22 @@ footer {
   }
 }
 @media screen and (max-width: 500px) {
-  .nav {
-    display: block;
+  .nav-wrapper {
+    padding: 0px;
   }
-  .nav-links {
-    display: block;
+  .brand .logo {
+    font-size: 1.5rem;
   }
+  .about-me div::before,
   .left h1 {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   #info {
     min-height: 30vh;
+  }
+  .left,
+  .right {
+    padding: 0rem 1rem;
   }
   .cards {
     grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));

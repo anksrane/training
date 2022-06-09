@@ -1,7 +1,7 @@
 "use strict";
 //Change Link Style
-const navLink = document.querySelectorAll(".nav-link");
-const navLinks = document.querySelector(".nav-links");
+
+const navLinks = document.querySelector(".nav-list");
 navLinks.addEventListener("click", function (e) {
   const clicked = e.target.closest(".nav-link");
   //Remove active class
@@ -13,19 +13,119 @@ navLinks.addEventListener("click", function (e) {
   }
 });
 
-//Modal
+//Navbar Responsive
+let hamburger=document.querySelector('.hamburger');
+let mobileNav=document.querySelector('.nav-list');
+const navLink = document.querySelectorAll(".nav-link");
+const openMenu=function(){mobileNav.classList.toggle('open');
+};
+
+function addRequiredClass(){
+    if(window.innerWidth<769){
+        document.body.classList.add('mobile');
+    }
+    else{
+        document.body.classList.remove('mobile');
+        mobileNav.classList.remove('open');
+    }
+}
+window.onload=addRequiredClass;
+window.addEventListener('resize', function(){
+    addRequiredClass();
+})
+
+/*To Hide Show usig Hamburger */
+hamburger.addEventListener('click',openMenu);
+let links = document.querySelectorAll('a');
+links.forEach(el=>{
+    el.addEventListener('click',openMenu);
+});
+
+//Modal Data Object
+const jobs = [
+  {
+    id: "here",
+    logo: "img/here.jpg",
+    companyName: "Here Technologies Pvt. Ltd.",
+    location: "Airoli, Mumbai",
+    designation: "Spatial Data Specialist",
+    dateOfJoin: "June 2019",
+    dateOfLeaving: "Present",
+    yearOfExperience: "3 Years",
+    role: [
+      "Responsible for analysing and editing Geo-Spatial Data points in Highly Automated Driving (HAD) project",
+      "Creating and maintaining an internal team performance dashboard",
+      "Working with agile methodologies practices including Agile, Scrum using tools such as JIRA and Confluence",
+      "Maintained high discipline and norm adherence, coordinated with superiors of Quality teams, and provided innovative suggestions to improve operational functioning of the internal team",
+      "Part of DEO Developer Community from January 2021",
+      "Created highly responsive user interfaces ensuring best experience on various screen sizes",
+      "Maintained Validations using Java based Code",
+    ],
+  },
+  {
+    id: "techflux",
+    logo: "img/techflux.jfif",
+    companyName: "Techflux (a Division of Renam Technologies pvt. ltd.)",
+    location: "Vashi, Mumbai",
+    designation: "Software Developer",
+    dateOfJoin: "January 2018",
+    dateOfLeaving: "July 2018",
+    yearOfExperience: "6 months",
+    role: [
+      "Webapp Development on “Bubble.is” Platform. Customizing those using Web Technologies (HTML, CSS, JavaScript)",
+      "Converted designs & wireframes to high quality UI code",
+      "Planning and Conceptualizing product",
+    ],
+  },
+  {
+    id: "abhaytech",
+    logo: "img/abhay.png",
+    companyName: "Abhay Tech Solutions LLP",
+    location: "Marol, Mumbai",
+    designation: "Internship Trainee",
+    dateOfJoin: "July 2017",
+    dateOfLeaving: "September 2017",
+    yearOfExperience: "3 months",
+    role: ["Designed UML Structure for Existing and Future Project"],
+  },
+];
+//Show Data in Modal
 var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
-// // When the user clicks on the button, open the modal
-// btn.onclick = function () {
-//   modal.style.display = "block";
-// };
+// When the user clicks on the button, open the modal
 const moreDetails = document.querySelectorAll(".buttons");
 const card = document.querySelector(".cards");
+const companyInfo = document.querySelector(".company-info");
+const descriptionList=document.querySelector(".description");
 card.addEventListener("click", function (e) {
-  const buttonClicked = e.target.closest(".primary");
-  console.log(buttonClicked.name);
+  const searchKey = e.target.closest(".primary");
+  console.log(searchKey.name);
+  //Display comapny info
+  let companyDetails = jobs.find((o) => o.id === searchKey.name);
+  companyInfo.innerHTML="";
+  //create html element
+  const html = `
+  <div class="info-container company-info">
+    <div class="left">
+      <img class="round" src="${companyDetails.logo}" alt="user" />
+    </div>
+    <div class="right">
+      <h2>${companyDetails.companyName}, ${companyDetails.location}</h2>
+      <h5>${companyDetails.designation}</h5>
+      <h6>${companyDetails.dateOfJoin} to ${companyDetails.dateOfLeaving} (${companyDetails.yearOfExperience})</h6>
+    </div>
+  </div>`;
+  companyInfo.insertAdjacentHTML("afterbegin",html);
+
+  //Display job desc
+  var roleLength = companyDetails.role.length;
+  descriptionList.innerHTML="";
+  for (let i = 0; i < roleLength; i++) {
+    var li = document.createElement("li");
+    li.innerHTML = companyDetails.role[i];
+    descriptionList.appendChild(li);
+  }
+
   modal.style.display = "block";
 });
 span.onclick = function () {

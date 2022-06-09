@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <button class="more-info" name="here">Here</button>
+      <button class="more-info" name="techflux">Techflux</button>
+      <button class="more-info" name="abhaytech">Abhaytech</button>
+    </div>
+    <div class="data-dsiplay"></div>
+    <ul class="data-ul" id="modalData"></ul>
+  </body>
+  <script>
+    const jobs = [
+      {
+        id: "here",
+        logo: "img/here.jpg",
+        companyName: "Here Technologies Pvt. Ltd.",
+        location: "Airoli, Mumbai",
+        designation: "Spatial Data Specialist",
+        dateOfJoin: "June 2019",
+        dateOfLeaving: "Present",
+        yearOfExperience: "3 Years",
+        role: [
+          "Responsible for analysing and editing Geo-Spatial Data points in Highly Automated Driving (HAD) project",
+          "Creating and maintaining an internal team performance dashboard",
+          "Working with agile methodologies practices including Agile, Scrum using tools such as JIRA and Confluence",
+          "Maintained high discipline and norm adherence, coordinated with superiors of Quality teams, and provided innovative suggestions to improve operational functioning of the internal team",
+          "Part of DEO Developer Community from January 2021",
+          "Created highly responsive user interfaces ensuring best experience on various screen sizes",
+          "Maintained Validations using Java based Code",
+        ],
+      },
+      {
+        id: "techflux",
+        logo: "img/techflux.jfif",
+        companyName: "Techflux (a Division of Renam Technologies pvt. ltd.)",
+        location: "Vashi, Mumbai",
+        designation: "Software Developer",
+        dateOfJoin: "January 2018",
+        dateOfLeaving: "July 2018",
+        yearOfExperience: "6 months",
+        role: [
+          "Webapp Development on “Bubble.is” Platform. Customizing those using Web Technologies (HTML, CSS, JavaScript)",
+          "Converted designs & wireframes to high quality UI code",
+          "Planning and Conceptualizing product",
+        ],
+      },
+      {
+        id: "abhaytech",
+        logo: "img/abhay.png",
+        companyName: "Abhay Tech Solutions LLP",
+        location: "Marol, Mumbai",
+        designation: "Internship Trainee (Technical Writer)",
+        dateOfJoin: "July 2017",
+        dateOfLeaving: "September 2017",
+        yearOfExperience: "3 months",
+        role: ["Designed UML Structure for Existing and Future Project"],
+      },
+    ];
+
+    for (let i = 0; i < jobs.length; i++) {
+      console.log(jobs[i].id);
+    }
+
+    const buttonContainer = document.querySelector(".container");
+    const display = document.querySelector(".data-dsiplay");
+    const buttons = document.querySelectorAll(".more-info");
+    const ul = document.querySelector(".data-ul");
+    buttonContainer.addEventListener("click", function (e) {
+      const searchKey = e.target.closest(".more-info");
+      let companyDetails = jobs.find((o) => o.id === searchKey.name);
+      console.log(typeof companyDetails);
+      display.innerHTML = "";
+      //create html element
+      const html = `
+      <div class="info-container company-info">
+        <div class="left">
+          <img class="round" src="${companyDetails.logo}" alt="user" />
+        </div>
+        <div class="right">
+          <h2>${companyDetails.companyName}, ${companyDetails.location}</h2>
+          <h5>${companyDetails.designation}</h5>
+          <h6>${companyDetails.dateOfJoin} to ${companyDetails.dateOfLeaving} (${companyDetails.yearOfExperience})</h6>
+        </div>
+      </div>
+    `;
+      display.insertAdjacentHTML("afterbegin", html);
+      var roleLength = companyDetails.role.length;
+      ul.innerHTML = "";
+      console.log(roleLength);
+      for (let i = 0; i < roleLength; i++) {
+        var li = document.createElement("li");
+        li.innerHTML = companyDetails.role[i];
+        ul.appendChild(li);
+      }
+    });
+
+    // let lookFor = "here";
+    // var search = "here" in jobs;
+    // console.log(search);
+    // var findKey = jobs.hasOwnProperty(lookFor);
+    // console.log(findKey);
+    // const buttonContainer = document.querySelector(".container");
+    // const buttons = document.querySelectorAll(".more-info");
+    // buttonContainer.addEventListener("click", function (e) {
+    //   const searchKey = e.target.closest(".more-info");
+    //   console.log(searchKey.name);
+    //   let printKey = Object.keys(jobs).find((key) => jobs[key] == searchKey);
+    //   console.log(printKey);
+    // });
+  </script>
+</html>
