@@ -123,7 +123,6 @@ nav {
   min-height: 95vh;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
-  z-index: -1;
   position: relative;
 }
 .info-container {
@@ -190,64 +189,6 @@ nav {
   background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 10% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  border-radius: 5px;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-.modal .card {
-  background-color: var(--bg);
-  display: block;
-  color: var(--prim-extradark);
-  border-radius: 5px;
-  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
-  padding-top: 30px;
-  padding-bottom: 30px;
-  position: relative;
-  text-align: center;
-}
-.company-info .left {
-  text-align: center;
-  padding: 1rem;
-}
-.modal .card .round {
-  width: 50%;
-  /* height: 100%; */
-  border: 1px solid var(--prim-extradark);
-}
-.company-info .right {
-  text-align: left;
-  padding: 1rem;
-}
-.company-info .right h5 {
-  font-size: 1.2rem;
-}
-.description {
-  text-align: justify;
-  padding: 1rem 2em;
-  border-top: 1px solid var(--prim-extradark);
-}
-/* Section Modal Style End _______________________________*/
-
 /* Section Experience Style Start _______________________________*/
 #experience {
   padding: 3rem 0rem;
@@ -306,6 +247,64 @@ button.primary:hover {
   border-color: var(--bg);
 }
 /* Section Experience Style End _______________________________*/
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal .card {
+  background-color: var(--bg);
+  display: block;
+  color: var(--prim-extradark);
+  border-radius: 5px;
+  box-shadow: none;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+  text-align: center;
+}
+.company-info .left {
+  text-align: center;
+  padding: 1rem;
+}
+.modal .card .round {
+  width: 50%;
+  border: 1px solid var(--prim-extradark);
+}
+.company-info .right {
+  text-align: left;
+  padding: 1rem;
+}
+.company-info .right h5 {
+  font-size: 1.2rem;
+}
+.description {
+  text-align: justify;
+  padding: 1rem 2em;
+  border-top: 1px solid var(--prim-extradark);
+  letter-spacing: 1px;
+}
+/* Section Modal Style End _______________________________*/
 
 /* Section Skills Style Start _______________________________*/
 #skills {
@@ -488,6 +487,7 @@ button.primary:hover {
   font-weight: 600;
   box-shadow: 0px -3px var(--prim-extradark);
   border-radius: 5px;
+  min-height: 300px;
 }
 .education-content--active {
   display: block;
@@ -550,6 +550,10 @@ footer {
   #experience {
     padding: 1rem 0rem;
   }
+  .education-content {
+    padding: 2rem;
+    min-height: 200px;
+  }
 }
 @media screen and (max-width: 500px) {
   .nav-wrapper {
@@ -558,6 +562,11 @@ footer {
   .brand .logo {
     font-size: 1.5rem;
   }
+  .about-me {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
   .about-me div::before,
   .left h1 {
     font-size: 1.3rem;
@@ -565,9 +574,37 @@ footer {
   #info {
     min-height: 30vh;
   }
+  .info-container {
+    flex-direction: column;
+  }
   .left,
   .right {
     padding: 0rem 1rem;
+    width: 100%;
+  }
+  .modal-content {
+    margin: 20% auto;
+    padding: 15px;
+  }
+  .modal-content .container {
+    width: 100%;
+  }
+  .modal .card {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .company-info {
+    flex-direction: column;
+  }
+  .company-info .left,
+  .company-info .right {
+    padding: 0rem 1rem;
+    text-align: center;
+    width: 100%;
+    font-size: 0.9em;
+  }
+  .description {
+    font-size: 0.9rem;
   }
   .cards {
     grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
@@ -611,7 +648,14 @@ footer {
   .education-content {
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    padding: 3rem 2rem;
+    padding: 1rem;
+  }
+  .edu-icon {
+    width: 0;
+    display: none;
+  }
+  .edu-data {
+    width: 100%;
   }
   .edu-data h4 {
     font-size: 1rem;

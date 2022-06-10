@@ -1,9 +1,19 @@
 "use strict";
-//Change Link Style
-
+//Change Nav Link Style
 const navLinks = document.querySelector(".nav-list");
+const navHeight = document.querySelector(".nav-wrapper").clientHeight;
 navLinks.addEventListener("click", function (e) {
   const clicked = e.target.closest(".nav-link");
+  console.log(clicked.href);
+  const tempArray = clicked.href.split("#");
+  const finalKey = tempArray[1];
+  console.log(finalKey);
+  let element = document.getElementById(finalKey);
+  console.log(element);
+  var rect = element.getBoundingClientRect().top;
+  console.log(rect);
+  console.log("Navbar Height", navHeight);
+  window.scrollTo(rect + navHeight + navHeight, 0);
   //Remove active class
   if (clicked) {
     navLink.forEach(function (t) {
@@ -13,32 +23,34 @@ navLinks.addEventListener("click", function (e) {
   }
 });
 
+//SmoothScrolling
+
 //Navbar Responsive
-let hamburger=document.querySelector('.hamburger');
-let mobileNav=document.querySelector('.nav-list');
+let hamburger = document.querySelector(".hamburger");
+let mobileNav = document.querySelector(".nav-list");
 const navLink = document.querySelectorAll(".nav-link");
-const openMenu=function(){mobileNav.classList.toggle('open');
+const openMenu = function () {
+  mobileNav.classList.toggle("open");
 };
 
-function addRequiredClass(){
-    if(window.innerWidth<769){
-        document.body.classList.add('mobile');
-    }
-    else{
-        document.body.classList.remove('mobile');
-        mobileNav.classList.remove('open');
-    }
+function addRequiredClass() {
+  if (window.innerWidth < 769) {
+    document.body.classList.add("mobile");
+  } else {
+    document.body.classList.remove("mobile");
+    mobileNav.classList.remove("open");
+  }
 }
-window.onload=addRequiredClass;
-window.addEventListener('resize', function(){
-    addRequiredClass();
-})
+window.onload = addRequiredClass;
+window.addEventListener("resize", function () {
+  addRequiredClass();
+});
 
 /*To Hide Show usig Hamburger */
-hamburger.addEventListener('click',openMenu);
-let links = document.querySelectorAll('a');
-links.forEach(el=>{
-    el.addEventListener('click',openMenu);
+hamburger.addEventListener("click", openMenu);
+let links = document.querySelectorAll("a");
+links.forEach((el) => {
+  el.addEventListener("click", openMenu);
 });
 
 //Modal Data Object
@@ -96,13 +108,13 @@ var span = document.getElementsByClassName("close")[0];
 const moreDetails = document.querySelectorAll(".buttons");
 const card = document.querySelector(".cards");
 const companyInfo = document.querySelector(".company-info");
-const descriptionList=document.querySelector(".description");
+const descriptionList = document.querySelector(".description");
 card.addEventListener("click", function (e) {
   const searchKey = e.target.closest(".primary");
   console.log(searchKey.name);
   //Display comapny info
   let companyDetails = jobs.find((o) => o.id === searchKey.name);
-  companyInfo.innerHTML="";
+  companyInfo.innerHTML = "";
   //create html element
   const html = `
   <div class="info-container company-info">
@@ -115,11 +127,11 @@ card.addEventListener("click", function (e) {
       <h6>${companyDetails.dateOfJoin} to ${companyDetails.dateOfLeaving} (${companyDetails.yearOfExperience})</h6>
     </div>
   </div>`;
-  companyInfo.insertAdjacentHTML("afterbegin",html);
+  companyInfo.insertAdjacentHTML("afterbegin", html);
 
-  //Display job desc
+  //Display job description
   var roleLength = companyDetails.role.length;
-  descriptionList.innerHTML="";
+  descriptionList.innerHTML = "";
   for (let i = 0; i < roleLength; i++) {
     var li = document.createElement("li");
     li.innerHTML = companyDetails.role[i];
