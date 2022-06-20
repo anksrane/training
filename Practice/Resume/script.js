@@ -3,17 +3,21 @@
 const navLinks = document.querySelector(".nav-list");
 const navHeight = document.querySelector(".nav-wrapper").clientHeight;
 navLinks.addEventListener("click", function (e) {
+  e.preventDefault;
   const clicked = e.target.closest(".nav-link");
-  console.log(clicked.href);
-  const tempArray = clicked.href.split("#");
-  const finalKey = tempArray[1];
-  console.log(finalKey);
-  let element = document.getElementById(finalKey);
-  console.log(element);
-  var rect = element.getBoundingClientRect().top;
-  console.log(rect);
-  console.log("Navbar Height", navHeight);
-  window.scrollTo(rect + navHeight + navHeight, 0);
+  let tempKey = clicked.innerText;
+  if (tempKey) {
+    const finalKey = tempKey.toLowerCase();
+    let element = document.getElementById(finalKey);
+    var rect = element.getBoundingClientRect().top;
+    // window.scrollTo(rect + navHeight, 0);
+    window.scrollTo({
+      top: rect - navHeight,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+
   //Remove active class
   if (clicked) {
     navLink.forEach(function (t) {

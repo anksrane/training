@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+:root {
+  --main-color: #317eeb;
+  --hover-color: #2764ba;
+  --body-color: #e0e0e0;
+  --box-color: white;
+}
+
+nav {
+  background: var(--main-color);
+}
+.heading {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0rem;
+  color: var(--body-color);
+}
+form{
+    display:block;
+    width:80%;
+    margin:0 auto;
+}
+.addMobile,.addEmail{
+    margin: 0.5rem 0rem;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.btn-primary{
+    margin: 0rem 0.5rem;
+    width: 7rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+}

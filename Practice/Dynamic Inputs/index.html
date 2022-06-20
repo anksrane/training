@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Details Form</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="heading container"><h2>Register Form</h2></div>
+    </nav>
+
+    <div class="container">
+         <form action="" id="form">
+           <div class="row">
+            <div class="form-group col-4">
+              <label for="first">First name</label>
+              <input type="text" class="form-control" id="firstName">
+            </div>
+            <div class="form-group col-4">
+                <label for="middle">Middle name</label>
+                <input type="text" class="form-control" id="middleName">
+            </div>
+            <div class="form-group col-4">
+                <label for="last">Last name</label>
+                <input type="text" class="form-control" id="lastName">
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-6" id="mobileContainer">
+              <div class="form-group mobile-group">
+                <label for="mobile1">Mobile</label>
+                <input type="tel" class="form-control" id="mobile1">
+                <input type="button" value="Add Another Number" class="addMobile btn btn btn-secondary">
+              </div>
+            </div>
+            <div class="col-6" id="emailContainer">
+              <div class="form-group email-group">
+                <label for="email1">Email</label>
+                <input type="email" class="form-control" id="email1">
+                <input type="button" value="Add Another Number" class="addEmail btn btn btn-secondary">
+              </div>
+            </div>
+           </div>
+           <div class="buttons">
+            <input type="submit" value="Save" class="btn btn-primary" id="submit">
+            <input type="reset" value="Reset" class="btn btn-primary">
+           </div>
+         </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
