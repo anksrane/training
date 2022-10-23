@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2&family=Baloo+Paaji+2:wght@400;500;600;800&display=swap");
+* {
+  font-family: "Baloo 2", cursive;
+  font-family: "Baloo Paaji 2", cursive;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+:root {
+  --primary: #5e5ed6;
+  --light: #7e7edd;
+  --superlight: #9398f1;
+  --white: #fefbfb;
+  --black: #464646;
+}
+.background {
+  background-image: url("images/background.jpg");
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+/* Navbar CSS */
+.navbar{
+  padding-top: 2%;
+}
+.navbar-brand{
+  margin-right: 20%;
+}
+.navbar-brand img{
+    width: 150px;
+    height: 100%;
+}
+#navbarSupportedContent{
+    background-image: linear-gradient(to right, var(--primary) , var(--superlight));
+    padding: 0px 20px;
+    border-radius:25px;
+    box-shadow: 0px -3px 10px #888888;
+}
+#navbarSupportedContent .nav-link{
+    color: var(--white);
+    border-top: 4px solid transparent;
+    padding: 20px;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+#navbarSupportedContent .active{
+  border-top: 4px solid var(--white);
+}
+/* Search Input CSS */
+.search-bar {
+  border-radius: 25px;
+  border: none;
+}
+.search-bar .search-input {
+  border-radius: 25px;
+  border: none;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.search-bar .search-btn {
+  border-radius: 25px;
+  border: none;
+  background-color: var(--white);
+  color: var(--primary);
+  font-weight: 800;
+}
+
+/*Quote */
+.quote{
+  height: 100%;
+  padding-right: 20%;
+}
+.quote h3{
+  font-weight: 400;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--black);
+}
+.quote h1{
+  font-weight: 600;
+  font-size: 5.3rem;
+  color: var(--primary);
+  line-height: 1;
+}
+.quote h2{
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--black);
+}
+.quote p{
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--black);
+}
+.buttons{
+  margin-top: 10px;
+}
+.btn-primary{
+  border-radius: 25px;
+  background-image: linear-gradient(to right, var(--primary) , var(--superlight));
+  border: none;
+  padding: 5px 40px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0px 2px 10px #888888;
+}
+.btn-secondary, .btn-secondary:hover{
+  border-radius: 25px;
+  background-color: transparent;
+  color: var(--black);
+  border: 2px solid var(--primary);
+  padding: 5px 40px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0px 2px 10px #888888;
+}
+
+/* Social Media Links */
+.social-media{
+  padding: 0;
+}
+.social-media .social-links a{
+  color: var(--primary);
+  border-radius: 50%;
+  font-size: 1.4rem;
+  padding-right: 1.5rem;
+}
+/* Chat */
+.chat{
+  position: fixed;
+  z-index: 2;
+  bottom: 30px;
+  right: 50px;
+  text-align: center;
+  font-size: 0.7rem;
+}
+.chat .chat-icon{
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+}
+
+/* Responsive when Screnn Width 1025px */
+@media screen and (max-width:1025px) {
+  .social-media{
+    margin-top: 25px;
+  }
+}
+
+/* Responsive when Screnn Width 768px */
+@media screen and (max-width:769px) {
+  .navbar-brand img{
+    width: 110px;
+    height: 50px;
+  }
+  #navbarSupportedContent{
+    padding: 20px;
+    border-top: none;
+
+  }
+  #navbarSupportedContent .active,#navbarSupportedContent:focus{
+    border-top: none;
+    font-weight: 800;
+  }
+  .quote{
+    padding-right: 10%;
+  }
+  .quote h3{
+    font-size: 3rem;
+  }
+  .quote h1{
+    font-size: 4.5rem;
+  }
+  .quote h2{
+    font-size: 3rem;
+  }
+  .quote p{
+    font-size: 1.1rem;
+  }
+  .btn-primary{
+    padding: 5px 15px;
+  }
+  .btn-secondary, .btn-secondary:visited{
+    padding: 5px 13px;
+  }
+  .triangle{
+    width: 100%;
+  }
+}
+
+/* Responsive when Screnn Width 426px */
+@media screen and (max-width:426px) {
+  .background{
+    height: 100%;
+  }
+  .quote{
+    padding: 7% 5%;
+  }
+  .buttons{
+    text-align: center;
+  }
+  .chat .chat-icon{
+    width: 50px;
+    height: 50px;
+  }
+}
