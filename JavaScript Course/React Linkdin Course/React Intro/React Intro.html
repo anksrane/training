@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <title>React Intro⚛️</title>
+      </head>
+<body>
+    <div id="root"></div>
+    <h1>React Started</h1>
+    <div id="test"></div>
+
+    <script type="text/javascript">
+        ReactDOM.render(
+            React.createElement("h1",null,"Element Using React"),
+            document.getElementById("root")
+        );
+        ReactDOM.render(
+            React.createElement("h1",null,"Element Using React2"),
+            document.getElementById("test")
+        );
+        /*  Syntax
+            ReactDOM.render(
+            React.createElement("tag",properties,"innerHTML"),
+            document.getElementById("root")
+        );
+        */
+    </script>
+</body>
+</html>
